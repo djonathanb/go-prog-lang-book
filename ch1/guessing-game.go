@@ -12,16 +12,16 @@ import (
 func main() {
 	fmt.Println("Guess the number!")
 
-	secret_number := rand.Intn(100)
+	secretNumber := rand.Intn(100)
 
 	reader := bufio.NewReader(os.Stdin)
 
 	for {
 		fmt.Print("Please input the guess: ")
 
-		guess_string, _ := reader.ReadString('\n')
-		trimmed_guess := strings.TrimSuffix(guess_string, "\n")
-		guess, err := strconv.Atoi(trimmed_guess)
+		guessString, _ := reader.ReadString('\n')
+		trimmedGuess := strings.TrimSuffix(guessString, "\n")
+		guess, err := strconv.Atoi(trimmedGuess)
 
 		if err != nil {
 			fmt.Println("Invalid number!")
@@ -30,9 +30,9 @@ func main() {
 
 		fmt.Printf("You guessed: %d\n", guess)
 
-		if guess < secret_number {
+		if guess < secretNumber {
 			fmt.Println("Too small!")
-		} else if guess > secret_number {
+		} else if guess > secretNumber {
 			fmt.Println("Too big!")
 		} else {
 			fmt.Println("You win!")
